@@ -1,8 +1,14 @@
 'use client'
 
+import Faq from '@/components/faq'
 import ImageCompareSlider from '@/components/image-compare-slider'
+import {
+  Alert,
+  AlertDescription,
+} from '@/components/ui/alert'
 import { Button } from '@/components/ui/button'
 import { Loader2, RotateCcw } from 'lucide-react'
+import Link from 'next/link'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
@@ -122,7 +128,7 @@ export default function Home() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center gap-4 py-4">
+    <div className="flex flex-col items-center justify-center gap-4 py-4 px-2">
       {!finish && (
         <div className="bg-card rounded-4xl shadow-2xl py-24 px-32">
           {!start
@@ -154,6 +160,14 @@ export default function Home() {
           </Button>
         </div>
       )}
+      <div className="max-w-xl py-4">
+        <Alert>
+          <AlertDescription>
+            <Link href="https://huggingface.co/briaai/RMBG-1.4" target="_blank">Model From RMBG-1.4</Link>
+          </AlertDescription>
+        </Alert>
+      </div>
+      <Faq />
     </div>
   )
 }
