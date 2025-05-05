@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+![rm-img-bg](https://socialify.git.ci/liuyuhe666/rm-img-bg/image?description=1&forks=1&issues=1&language=1&name=1&owner=1&pattern=Circuit+Board&pulls=1&stargazers=1&theme=Auto)
 
-## Getting Started
+## ✨ 特性
 
-First, run the development server:
+- 操作简单，一键去除图片背景，快速抠图
+- 图片不会上传到服务器，无隐私风险
+- 基于 [`briaai/RMBG-1.4`](https://huggingface.co/briaai/RMBG-1.4) 模型，更加准确高效
+
+## 🚀 使用说明
+
+本地使用
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+git clone https://github.com/liuyuhe666/rm-img-bg.git
+cd rm-img-bg
+pnpm i
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+在线体验：
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- [https://rm-img-bg.vercel.app](https://rm-img-bg.vercel.app)
+- [https://rm-img-bg.liuyuhe.top](https://rm-img-bg.liuyuhe.top)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📝 许可
 
-## Learn More
+[GNU General Public License v3.0](https://github.com/liuyuhe666/rm-img-bg/blob/main/LICENSE)
 
-To learn more about Next.js, take a look at the following resources:
+## 🌹 支持
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+如果你喜欢这个项目或发现有用，可以点右上角 [Star](https://github.com/liuyuhe666/rm-img-bg) 支持一下，你的支持是我们不断改进的动力，感谢！ ^_^
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+<p align="center"><a href="https://github.com/lyh-gzh/buy-me-a-coffee">☕ Buy me a coffee</a></p>
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+<img src="https://raw.githubusercontent.com/liuyuhe666/liuyuhe666/refs/heads/main/assets/footer.svg" alt="footer" />
