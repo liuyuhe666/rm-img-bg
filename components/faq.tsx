@@ -8,7 +8,7 @@ import Link from 'next/link'
 
 export default function Faq() {
   return (
-    <div className="flex flex-col items-center gap-2 container mx-auto py-4">
+    <div className="flex flex-col items-center gap-2 container mx-auto py-4 max-w-5xl">
       <h2 className="text-2xl font-bold">常见问题</h2>
       <Accordion type="single" collapsible className="w-full">
         <AccordionItem value="item-1">
@@ -24,6 +24,12 @@ export default function Faq() {
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="item-3">
+          <AccordionTrigger className="font-bold">支持的图片格式</AccordionTrigger>
+          <AccordionContent>
+            image/png, image/jpeg
+          </AccordionContent>
+        </AccordionItem>
+        <AccordionItem value="item-4">
           <AccordionTrigger className="font-bold">更多问题 ...</AccordionTrigger>
           <AccordionContent>
             <Link href="https://github.com/liuyuhe666/rm-img-bg/issues" target="_blank">https://github.com/liuyuhe666/rm-img-bg/issues</Link>
