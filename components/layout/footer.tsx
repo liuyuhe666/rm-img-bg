@@ -6,8 +6,8 @@ import { useVercount } from 'vercount-react'
 export default function Footer() {
   const { sitePv, siteUv } = useVercount()
   return (
-    <footer className="border-t">
-      <div className="container mx-auto flex flex-col items-center justify-between py-4 gap-2">
+    <footer>
+      <div className="container mx-auto flex flex-col items-center justify-between py-8 gap-2">
         <div>
           Made with ❤ by
           {' '}

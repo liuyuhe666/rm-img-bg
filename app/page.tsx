@@ -128,46 +128,50 @@ export default function Home() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center gap-4 py-4 px-2">
-      {!finish && (
-        <div className="bg-card rounded-4xl shadow-2xl py-24 px-32">
-          {!start
-            && (
-              <Button asChild className="rounded-full">
-                <label htmlFor="uploadImageInput">上传图片</label>
-              </Button>
-            )}
-          { start && !finish
-            && (
-              <Button disabled>
-                <Loader2 className="animate-spin" />
-                请稍等...
-              </Button>
-            )}
-          <input id="uploadImageInput" type="file" accept="image/png, image/jpeg" className="hidden" onChange={handleInputChange} />
+    <div className="flex flex-col items-center px-4">
+      <div className="flex flex-col items-center justify-center min-h-screen gap-4">
+        {!finish && (
+          <div className="bg-card rounded-4xl shadow-2xl py-24 px-32">
+            {!start
+              && (
+                <Button asChild className="rounded-full">
+                  <label htmlFor="uploadImageInput">上传图片</label>
+                </Button>
+              )}
+            { start && !finish
+              && (
+                <Button disabled>
+                  <Loader2 className="animate-spin" />
+                  请稍等...
+                </Button>
+              )}
+            <input id="uploadImageInput" type="file" accept="image/png, image/jpeg" className="hidden" onChange={handleInputChange} />
+          </div>
+        )}
+        {originalSrc && modifiedSrc && (
+          <div className="bg-card rounded-md shadow-2xl p-2">
+            <ImageCompareSlider originalSrc={originalSrc} modifiedSrc={modifiedSrc} width={width} height={height} />
+          </div>
+        )}
+        {modifiedSrc && (
+          <div className="flex items-center justify-center gap-2">
+            <Button onClick={handleDownload}>下载图片</Button>
+            <Button variant="outline" size="icon" onClick={handleRestart}>
+              <RotateCcw />
+            </Button>
+          </div>
+        )}
+        <div className="max-w-xl py-4">
+          <Alert>
+            <AlertDescription>
+              <Link href="https://huggingface.co/briaai/RMBG-1.4" target="_blank">Model From RMBG-1.4</Link>
+            </AlertDescription>
+          </Alert>
         </div>
-      )}
-      {originalSrc && modifiedSrc && (
-        <div className="bg-card rounded-md shadow-2xl p-2">
-          <ImageCompareSlider originalSrc={originalSrc} modifiedSrc={modifiedSrc} width={width} height={height} />
-        </div>
-      )}
-      {modifiedSrc && (
-        <div className="flex items-center justify-center gap-2">
-          <Button onClick={handleDownload}>下载图片</Button>
-          <Button variant="outline" size="icon" onClick={handleRestart}>
-            <RotateCcw />
-          </Button>
-        </div>
-      )}
-      <div className="max-w-xl py-4">
-        <Alert>
-          <AlertDescription>
-            <Link href="https://huggingface.co/briaai/RMBG-1.4" target="_blank">Model From RMBG-1.4</Link>
-          </AlertDescription>
-        </Alert>
       </div>
-      <Faq />
+      <div className="min-h-screen flex flex-col items-center justify-center w-full">
+        <Faq />
+      </div>
     </div>
   )
 }

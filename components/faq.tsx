@@ -9,7 +9,7 @@ import Link from 'next/link'
 export default function Faq() {
   return (
     <div className="flex flex-col items-center gap-2 container mx-auto py-4 max-w-5xl">
-      <h2 className="text-2xl font-bold">常见问题</h2>
+      <h2 className="text-4xl font-bold">常见问题</h2>
       <Accordion type="single" collapsible className="w-full">
         <AccordionItem value="item-1">
           <AccordionTrigger className="font-bold">为什么第一次处理图片会很慢？</AccordionTrigger>
