@@ -1,5 +1,6 @@
 'use client'
 
+import Demo from '@/components/demo'
 import Faq from '@/components/faq'
 import ImageCompareSlider from '@/components/image-compare-slider'
 import {
@@ -168,6 +169,9 @@ export default function Home() {
             </AlertDescription>
           </Alert>
         </div>
+      </div>
+      <div className="min-h-screen flex flex-col items-center justify-center w-full">
+        <Demo />
       </div>
       <div className="min-h-screen flex flex-col items-center justify-center w-full">
         <Faq />

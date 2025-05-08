@@ -4,7 +4,7 @@ import { Button } from '../ui/button'
 
 export default function Header() {
   return (
-    <header className="shadow-sm">
+    <header className="fixed top-0 left-0 right-0 shadow-sm">
       <div className="container mx-auto flex items-center justify-between py-4 px-2">
         <div className="flex items-center justify-center gap-2">
           <img src="/logo.png" className="size-8" alt="logo" />
