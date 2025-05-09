@@ -6,6 +6,7 @@ import {
   TabsList,
   TabsTrigger,
 } from '@/components/ui/tabs'
+import ImagePreview from './image-preview'
 
 interface Item {
   before: string
@@ -66,11 +67,11 @@ export default function Demo() {
                     return (
                       <div key={`${item1}-${item2.before}-${item2.after}`} className="bg-card rounded-4xl shadow-2xl p-4 flex flex-col md:flex-row items-center justify-between">
                         <div className="flex flex-col items-center justify-between gap-2">
-                          <img src={item2.before} alt={item2.before} />
+                          <ImagePreview src={item2.before} alt={item2.before} />
                           <span className="text-sm text-gray-500 dark:text-gray-200">Original</span>
                         </div>
                         <div className="flex flex-col items-center justify-between gap-2">
-                          <img src={item2.after} alt={item2.after} />
+                          <ImagePreview src={item2.after} alt={item2.after} />
                           <span className="text-sm text-gray-500 dark:text-gray-200">Transparent background</span>
                         </div>
                       </div>
