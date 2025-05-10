@@ -28,6 +28,7 @@ export default function Home() {
   const [width, setWidth] = useState<number>(0)
   const [height, setHeight] = useState<number>(0)
   const worker = useRef<Worker>(null)
+  const dropAreaRef = useRef<HTMLDivElement>(null)
 
   function rawImageToBase64(rawImage: RawImage): string {
     const { data, width, height, channels } = rawImage
@@ -63,6 +64,62 @@ export default function Home() {
     return canvas.toDataURL('image/png') // 或 'image/jpeg'
   }
 
+  // 拖拽上传
+  useEffect(() => {
+    const dropArea = dropAreaRef.current
+    if (!dropArea)
+      return
+
+    const handleDrop = (e: DragEvent) => {
+      e.preventDefault()
+      if (e.dataTransfer?.files) {
+        const files = e.dataTransfer.files
+        if (files.length > 0) {
+          handleFile(files[0])
+        }
+      }
+    }
+
+    const handleDragOver = (e: DragEvent) => {
+      e.preventDefault()
+    }
+
+    dropArea.addEventListener('drop', handleDrop)
+    dropArea.addEventListener('dragover', handleDragOver)
+
+    return () => {
+      dropArea.removeEventListener('drop', handleDrop)
+      dropArea.removeEventListener('dragover', handleDragOver)
+    }
+  }, [])
+
+  // 粘贴上传
+  useEffect(() => {
+    const handlePaste = (e: ClipboardEvent) => {
+      const items = e.clipboardData?.items
+      if (!items)
+        return
+
+      const files: File[] = []
+      for (const item of items) {
+        if (item.type.startsWith('image/')) {
+          const file = item.getAsFile()
+          if (file)
+            files.push(file)
+        }
+      }
+
+      if (files.length > 0) {
+        handleFile(files[0])
+      }
+    }
+
+    window.addEventListener('paste', handlePaste)
+    return () => {
+      window.removeEventListener('paste', handlePaste)
+    }
+  }, [])
+
   useEffect(() => {
     if (!worker.current) {
       worker.current = new Worker(new URL('./worker.js', import.meta.url), {
@@ -91,11 +148,7 @@ export default function Home() {
     }
   }, [])
 
-  function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
-    if (!e.target.files) {
-      return
-    }
-    const file = e.target.files[0]
+  function handleFile(file: File) {
     if (!file) {
       return
     }
@@ -107,6 +160,14 @@ export default function Home() {
       setStart(true)
     }
     reader.readAsDataURL(file)
+  }
+
+  function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
+    if (!e.target.files) {
+      return
+    }
+    const file = e.target.files[0]
+    handleFile(file)
   }
 
   function handleDownload() {
@@ -132,12 +193,15 @@ export default function Home() {
     <div className="flex flex-col items-center px-4">
       <div className="flex flex-col items-center justify-center min-h-screen gap-4">
         {!finish && (
-          <div className="bg-card rounded-4xl shadow-2xl py-24 px-32">
+          <div className="flex flex-col items-center justify-between gap-2 bg-card rounded-4xl shadow-2xl py-24 px-32" ref={dropAreaRef}>
             {!start
               && (
-                <Button asChild className="rounded-full">
-                  <label htmlFor="uploadImageInput">上传图片</label>
-                </Button>
+                <>
+                  <Button asChild className="rounded-full">
+                    <label htmlFor="uploadImageInput">上传图片</label>
+                  </Button>
+                  <p className="text-sm text-gray-500 dark:text-gray-300 text-center">拖拽图片到此区域，或在页面粘贴图片</p>
+                </>
               )}
             { start && !finish
               && (

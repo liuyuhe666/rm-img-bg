@@ -18,7 +18,7 @@ function Layout({ children }: { children: React.ReactNode }) {
             </div>
           )}
       <Header />
-      <main>{children}</main>
+      <main className="mt-16">{children}</main>
       <Footer />
     </div>
   )
