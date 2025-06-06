@@ -30,6 +30,12 @@ pnpm dev
 
 如果你喜欢这个项目或发现有用，可以点右上角 [Star](https://github.com/liuyuhe666/rm-img-bg) 支持一下，你的支持是我们不断改进的动力，感谢！ ^_^
 
-<p align="center"><a href="https://github.com/lyh-gzh/buy-me-a-coffee">☕ Buy me a coffee</a></p>
+## ⭐ Star History
 
-<img src="https://raw.githubusercontent.com/liuyuhe666/liuyuhe666/refs/heads/main/assets/footer.svg" alt="footer" />
+<a href="https://www.star-history.com/#liuyuhe666/rm-img-bg&Date">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=liuyuhe666/rm-img-bg&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=liuyuhe666/rm-img-bg&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=liuyuhe666/rm-img-bg&type=Date" />
+ </picture>
+</a>
