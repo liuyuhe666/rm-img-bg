@@ -17,6 +17,17 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: 'AI 一键去除背景',
   description: 'AI 一键去除图片背景，快速抠图，瞬间实现背景去除',
+  keywords: ['AI', '去除背景', '抠图', '图片处理', '背景去除'],
+  authors: [{ name: 'LiuYuhe', url: 'https://github.com/liuyuhe666' }],
+  creator: 'LiuYuhe',
+  openGraph: {
+    type: 'website',
+    url: 'https://rm-img-bg.vercel.app',
+    title: 'AI 一键去除背景',
+    description: 'AI 一键去除图片背景，快速抠图，瞬间实现背景去除',
+    siteName: 'AI 一键去除背景',
+    images: [{ url: '/og.png' }],
+  },
 }
 
 export default function RootLayout({
